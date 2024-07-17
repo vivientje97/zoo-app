@@ -2,6 +2,7 @@
   <div class="zoo">
     <h1 class="title">Welcome to the Zoo!</h1>
     <add-animal-button @animal-added="addAnimalToPool" />
+	   <button class="button is-danger" @click="resetAnimalPool">Reset Zoo</button>
     <div class="zoo-container">
       <div class="animals-container">
         <animal-list :animals="animalsPool" @animal-eaten="removeEatenAnimal" />
@@ -51,9 +52,14 @@ export default {
 
 			this.animalsPool.push(newAnimal);
 		},
+
 		removeEatenAnimal(animalToRemoveId) {
 			this.animalsPool = this.animalsPool.filter(animal => animal.id !== animalToRemoveId);
-		}
+		},
+
+		resetAnimalPool() {
+			this.animalsPool = [];
+		},
 	}
 }
 </script>
