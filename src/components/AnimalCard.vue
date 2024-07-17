@@ -2,14 +2,15 @@
   <div class="animal-card">
     <img :src="animal.image" :alt="animal.name" class="animal-image" />
     <h3>{{ animal.name }}</h3>
-    <p>Type: {{ animal.type }}</p>
-    <p>Diet: {{ animal.diet }}</p>
-    <p>Danger Level: {{ animal.dangerLevel }}</p>
+<!--	  <p>id: {{ animal.id }}</p>-->
+<!--    <p>Type: {{ animal.type }}</p>-->
+<!--    <p>Diet: {{ animal.diet }}</p>-->
+<!--    <p>Danger Level: {{ animal.dangerLevel }}</p>-->
     <button @click="interactWithUser">Interact with User</button>
     <div v-if="animals.length > 1">
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>
-      <p v-if="interactionResult">{{ interactionResult }}</p>
     </div>
+	  <p v-if="interactionResult" class="interaction-result">{{ interactionResult }}</p>
   </div>
 </template>
 
@@ -21,7 +22,7 @@ export default {
 	},
 	data() {
 		return {
-			interactionResult: ''
+			interactionResult: '',
 		};
 	},
 	methods: {
@@ -29,10 +30,15 @@ export default {
 			this.interactionResult = this.animal.interactWithUser();
 		},
 		interactWithAnotherAnimal() {
-			const otherAnimals = this.animals.filter(a => a !== this.animal);
+			const otherAnimals = this.animals.filter(a => a.id !== this.animal.id && !a.isEaten);
 			if (otherAnimals.length > 0) {
 				const randomAnimal = otherAnimals[Math.floor(Math.random() * otherAnimals.length)];
 				this.interactionResult = this.animal.interactWith(randomAnimal);
+
+				if (this.interactionResult.includes('eats')) {
+					randomAnimal.isEaten = true;
+					this.$emit('animal-eaten', randomAnimal.id);
+				}
 			}
 		}
 	}
@@ -51,10 +57,9 @@ export default {
 	align-items: center;
 }
 .animal-image {
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	object-fit: contain;
 	margin-bottom: 10px;
 }
 </style>

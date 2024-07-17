@@ -1,46 +1,37 @@
 <template>
   <div class="grouped-animals">
-    <h2>Animals in the Zoo</h2>
-    <div
-		class="animal-group"
-		v-for="(group, type) in groupedAnimals"
-		:key="type"
-	>
-      <h3>{{ type }}</h3>
-      <div class="animal-cards">
-        <animal-card
-			v-for="animal in group"
-			:key="animal.name"
-			:animal="animal"
-			:animals="animals"
-		/>
-      </div>
+    <div v-for="animalGroup in groupedAnimals" :key="animalGroup.type" class="animal-group">
+      <h3>{{ animalGroup.type }}</h3>
+      <ul>
+        <li v-for="animal in animalGroup.animals" :key="animal.id">
+          <strong>{{ animal.name }}</strong> - {{ animal.diet }}, Danger Level: {{ animal.dangerLevel }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import AnimalCard from './AnimalCard.vue';
-
 export default {
-	components: {
-		AnimalCard,
-	},
 	props: {
-		animals: Array,
+		animals: Array
 	},
 	computed: {
 		groupedAnimals() {
-			const groups = {};
-			this.animals.forEach((animal) => {
-				if (!groups[animal.type]) {
-					groups[animal.type] = [];
+			const grouped = {};
+			this.animals.forEach(animal => {
+				if (!grouped[animal.type]) {
+					grouped[animal.type] = {
+						type: animal.type,
+						animals: []
+					};
 				}
-				groups[animal.type].push(animal);
+				grouped[animal.type].animals.push(animal);
 			});
-			return groups;
-		},
-	},
+			// Convert object to array for easier rendering
+			return Object.values(grouped);
+		}
+	}
 };
 </script>
 
@@ -53,9 +44,18 @@ export default {
 	margin-bottom: 20px;
 }
 
-.animal-cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+h2 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	margin-bottom: 5px;
+	font-size: 1rem;
 }
 </style>

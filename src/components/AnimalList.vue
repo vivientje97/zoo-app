@@ -1,7 +1,13 @@
 <template>
-<div class="animal-list">
-  <animal-card v-for="animal in animals" :key="animal.name" :animal="animal" :animals="animals" />
-</div>
+  <div class="animal-list">
+    <animal-card
+		v-for="animal in filteredAnimals"
+		:key="animal.id"
+		:animal="animal"
+		:animals="animals"
+		@animal-eaten="handleAnimalEaten"
+	/>
+  </div>
 </template>
 
 <script>
@@ -13,6 +19,16 @@ export default {
 	},
 	props: {
 		animals: Array
+	},
+	computed: {
+		filteredAnimals() {
+			return this.animals.filter(animal => !animal.isEaten);
+		}
+	},
+	methods: {
+		handleAnimalEaten(animalId) {
+			this.$emit('animal-eaten', animalId);
+		}
 	}
 }
 </script>
@@ -21,5 +37,7 @@ export default {
 .animal-list {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
 }
 </style>
