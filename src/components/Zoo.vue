@@ -57,38 +57,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.zoo {
-	text-align: center;
-	background-color: #ffd966;
-	padding: 20px;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-.title {
-	font-size: 2rem;
-	margin-bottom: 20px;
-	color: #333;
-}
-.zoo-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	gap: 20px;
-	width: 100%;
-	padding: 20px;
-}
-.animals-container {
-	flex: 1;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 20px;
-}
-.grouped-animals-container {
-	flex: 1;
-	max-width: 400px;
-}
-</style>
+<style src="../styles/Zoo.css"></style>

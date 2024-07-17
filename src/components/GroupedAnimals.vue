@@ -1,7 +1,15 @@
 <template>
   <div class="grouped-animals">
-    <div v-for="animalGroup in groupedAnimals" :key="animalGroup.type" class="animal-group">
-      <h3>{{ animalGroup.type }}</h3>
+    <div class="grouping-selector">
+      <label for="grouping">Group by:</label>
+      <select id="grouping" v-model="selectedGrouping">
+        <option value="type">Type</option>
+        <option value="diet">Diet</option>
+        <option value="dangerLevel">Danger Level</option>
+      </select>
+    </div>
+    <div v-for="animalGroup in groupedAnimals" :key="animalGroup.group" class="animal-group">
+      <h3>{{ animalGroup.group }}</h3>
       <ul>
         <li v-for="animal in animalGroup.animals" :key="animal.id">
           <strong>{{ animal.name }}</strong> - {{ animal.diet }}, Danger Level: {{ animal.dangerLevel }}
@@ -16,46 +24,28 @@ export default {
 	props: {
 		animals: Array
 	},
+	data() {
+		return {
+			selectedGrouping: 'type'
+		};
+	},
 	computed: {
 		groupedAnimals() {
 			const grouped = {};
 			this.animals.forEach(animal => {
-				if (!grouped[animal.type]) {
-					grouped[animal.type] = {
-						type: animal.type,
+				const group = animal[this.selectedGrouping];
+				if (!grouped[group]) {
+					grouped[group] = {
+						group: group,
 						animals: []
 					};
 				}
-				grouped[animal.type].animals.push(animal);
+				grouped[group].animals.push(animal);
 			});
-			// Convert object to array for easier rendering
 			return Object.values(grouped);
 		}
 	}
 };
 </script>
 
-<style scoped>
-.grouped-animals {
-	margin-top: 20px;
-}
-
-.animal-group {
-	margin-bottom: 20px;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-bottom: 10px;
-}
-
-ul {
-	list-style: none;
-	padding: 0;
-}
-
-li {
-	margin-bottom: 5px;
-	font-size: 1rem;
-}
-</style>
+<style src="../styles/GroupedAnimals.css"></style>

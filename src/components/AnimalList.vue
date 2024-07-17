@@ -33,11 +33,4 @@ export default {
 }
 </script>
 
-<style>
-.animal-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: center;
-}
-</style>
+<style src="../styles/AnimalList.css"></style>

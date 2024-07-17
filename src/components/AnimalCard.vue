@@ -45,21 +45,4 @@ export default {
 }
 </script>
 
-<style>
-.animal-card {
-	border: 1px solid #ccc;
-	padding: 1em;
-	margin: 1em;
-	border-radius: 8px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-.animal-image {
-	width: 50px;
-	height: 50px;
-	object-fit: contain;
-	margin-bottom: 10px;
-}
-</style>
+<style src="../styles/AnimalCard.css"></style>
