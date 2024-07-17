@@ -14,7 +14,7 @@ export default class Animal {
 			if (this.diet === 'Carnivore' && otherAnimal.diet !== 'Carnivore') {
 				return this.attemptToEat(otherAnimal);
 			} else if (this.diet === 'Carnivore' && otherAnimal.diet === 'Carnivore') {
-				return this.attemptToEat(otherAnimal);
+				return this.fight(otherAnimal);
 			} else {
 				return `${this.name} and ${otherAnimal.name} are just hanging out.`;
 			}
@@ -37,6 +37,14 @@ export default class Animal {
 		} else {
 			return `${otherAnimal.name} escapes from ${this.name}!`;
 		}
+	}
+
+	fight(otherAnimal) {
+		const thisChance = this.dangerLevel / (this.dangerLevel + otherAnimal.dangerLevel);
+		const outcome = Math.random() < thisChance ? this : otherAnimal;
+
+		outcome.isEaten = true;
+		return `${outcome.name} wins the fight! ${otherAnimal.name} is defeated.`;
 	}
 
 	interactWithUser() {

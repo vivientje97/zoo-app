@@ -1,8 +1,8 @@
 <template>
-  <div class="animal-card">
+  <div v-if="!animal.isEaten" class="animal-card">
     <img :src="animal.image" :alt="animal.name" class="animal-image" />
-    <h3>{{ animal.name }}</h3>
-<!--	  <p>id: {{ animal.id }}</p>-->
+<!--    <h3>{{ animal.name }}</h3>-->
+<!--    <p>id: {{ animal.id }}</p>-->
 <!--    <p>Type: {{ animal.type }}</p>-->
 <!--    <p>Diet: {{ animal.diet }}</p>-->
 <!--    <p>Danger Level: {{ animal.dangerLevel }}</p>-->
@@ -10,7 +10,7 @@
     <div v-if="animals.length > 1">
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>
     </div>
-	  <p v-if="interactionResult" class="interaction-result">{{ interactionResult }}</p>
+    <p :class="interactionResultClass" class="interaction-result">{{ interactionResult }}</p>
   </div>
 </template>
 
@@ -25,6 +25,11 @@ export default {
 			interactionResult: '',
 		};
 	},
+	computed: {
+		interactionResultClass() {
+			return this.interactionResult.includes('eats') ? 'red' : 'green';
+		}
+	},
 	methods: {
 		interactWithUser() {
 			this.interactionResult = this.animal.interactWithUser();
@@ -36,7 +41,6 @@ export default {
 				this.interactionResult = this.animal.interactWith(randomAnimal);
 
 				if (this.interactionResult.includes('eats')) {
-					randomAnimal.isEaten = true;
 					this.$emit('animal-eaten', randomAnimal.id);
 				}
 			}
