@@ -45,7 +45,8 @@ export default {
 				randomAnimalData.type,
 				randomAnimalData.diet,
 				randomAnimalData.dangerLevel,
-				randomAnimalData.image
+				randomAnimalData.image,
+				randomAnimalData.speed
 			);
 
 			this.animalsPool.push(newAnimal);

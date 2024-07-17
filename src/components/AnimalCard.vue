@@ -1,11 +1,7 @@
 <template>
   <div v-if="!animal.isEaten" class="animal-card">
     <img :src="animal.image" :alt="animal.name" class="animal-image" />
-<!--    <h3>{{ animal.name }}</h3>-->
-<!--    <p>id: {{ animal.id }}</p>-->
-<!--    <p>Type: {{ animal.type }}</p>-->
-<!--    <p>Diet: {{ animal.diet }}</p>-->
-<!--    <p>Danger Level: {{ animal.dangerLevel }}</p>-->
+    <h3>{{ animal.name }}</h3>
     <button @click="interactWithUser">Interact with User</button>
     <div v-if="animals.length > 1">
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>

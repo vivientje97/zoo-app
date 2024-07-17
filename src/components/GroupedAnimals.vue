@@ -6,13 +6,14 @@
         <option value="type">Type</option>
         <option value="diet">Diet</option>
         <option value="dangerLevel">Danger Level</option>
+		  <option value="speed">Speed</option>
       </select>
     </div>
     <div v-for="animalGroup in groupedAnimals" :key="animalGroup.group" class="animal-group">
       <h3>{{ animalGroup.group }}</h3>
       <ul>
         <li v-for="animal in animalGroup.animals" :key="animal.id">
-          <strong>{{ animal.name }}</strong> - {{ animal.diet }}, Danger Level: {{ animal.dangerLevel }}
+          <strong>{{ animal.name }}</strong> - {{ animal.diet }}, Danger Level: {{ animal.dangerLevel }}, Speed: {{ animal.speed }}
         </li>
       </ul>
     </div>
