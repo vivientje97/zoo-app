@@ -11,10 +11,6 @@ export default class Animal {
 	}
 
 	interactWith(otherAnimal) {
-		if (this === otherAnimal) {
-			return `${this.name} is interacting with itself.`;
-		}
-
 		if (this.diet === 'Herbivore' || this.diet === 'Omnivore') {
 			if ((otherAnimal.diet === 'Herbivore' || otherAnimal.diet === 'Omnivore') && otherAnimal.dangerLevel < this.dangerLevel) {
 				return `${this.name} watches ${otherAnimal.name} with mild interest`;

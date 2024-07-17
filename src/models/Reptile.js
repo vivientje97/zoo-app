@@ -1,8 +1,8 @@
 import Animal from './Animal';
 
 export default class Reptile extends Animal {
-	constructor(name, diet, dangerLevel, image) {
-		super(name, 'Reptile', diet, dangerLevel, image);
+	constructor(id, name, diet, dangerLevel, image, speed) {
+		super(id, name, 'Reptile', diet, dangerLevel, image, speed);
 	}
 
 	interact() {

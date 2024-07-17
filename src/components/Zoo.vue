@@ -36,7 +36,7 @@ export default {
 
 	methods: {
 		addAnimalToPool() {
-			const id = this.animalsPool.length + 1; // Example: simple increment for demo, consider using UUID for production
+			const id = this.animalsPool.length + 1;
 			const randomIndex = Math.floor(Math.random() * animalsData.length);
 			const randomAnimalData = animalsData[randomIndex];
 

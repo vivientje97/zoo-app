@@ -1,4 +1,7 @@
-import Animal from '../models/Animal';
+import Mammal from './Mammal';
+import Bird from './Bird';
+import Fish from './Fish';
+import Reptile from './Reptile';
 
 import chickenImage from '../assets/Chicken.gif';
 import crabImage from '../assets/Crab.gif';
@@ -22,26 +25,26 @@ import giraffeImage from '../assets/Giraffe.png';
 import deerImage from '../assets/Deer.png';
 
 const animalsData = [
-	new Animal(1, 'Chicken', 'Bird', 'Herbivore', 1, chickenImage, 3),
-	new Animal(2, 'Crab', 'Crustacean', 'Omnivore', 1, crabImage, 1),
-	new Animal(3, 'Turtle', 'Reptile', 'Omnivore', 1, turtleImage, 2),
-	new Animal(4, 'Toad', 'Amphibian', 'Omnivore', 1, toadImage, 1),
-	new Animal(5, 'Gorilla', 'Mammal', 'Herbivore', 4, gorillaImage, 2),
-	new Animal(6, 'Frog', 'Amphibian', 'Omnivore', 1, frogImage, 1),
-	new Animal(7, 'Monkey', 'Mammal', 'Omnivore', 2, monkeyImage, 3),
-	new Animal(8, 'Wolf', 'Mammal', 'Carnivore', 5, wolfImage, 4),
-	new Animal(9, 'Moose', 'Mammal', 'Herbivore', 3, mooseImage, 3),
-	new Animal(10, 'Sheep', 'Mammal', 'Herbivore', 2, sheepImage, 2),
-	new Animal(11, 'Boar', 'Mammal', 'Omnivore', 3, boarImage, 3),
-	new Animal(12, 'Lion', 'Mammal', 'Carnivore', 5, lionImage, 4),
-	new Animal(13, 'Elephant', 'Mammal', 'Herbivore', 3, elephantImage, 2),
-	new Animal(14, 'Tiger', 'Mammal', 'Carnivore', 5, tigerImage, 5),
-	new Animal(15, 'Rhino', 'Mammal', 'Herbivore', 4, rhinoImage, 4),
-	new Animal(16, 'Bear', 'Mammal', 'Omnivore', 4, bearImage, 3),
-	new Animal(17, 'Hippo', 'Mammal', 'Herbivore', 4, hippoImage, 3),
-	new Animal(18, 'Zebra', 'Mammal', 'Herbivore', 2, zebraImage, 3),
-	new Animal(19, 'Giraffe', 'Mammal', 'Herbivore', 3, giraffeImage, 2),
-	new Animal(20, 'Deer', 'Mammal', 'Herbivore', 2, deerImage, 3),
+	new Bird(1, 'Chicken', 'Herbivore', 1, chickenImage, 3),
+	new Fish(2, 'Crab', 'Omnivore', 1, crabImage, 1),
+	new Reptile(3, 'Turtle', 'Omnivore', 1, turtleImage, 2),
+	new Reptile(4, 'Toad', 'Omnivore', 1, toadImage, 1),
+	new Mammal(5, 'Gorilla', 'Herbivore', 4, gorillaImage, 2),
+	new Reptile(6, 'Frog', 'Omnivore', 1, frogImage, 1),
+	new Mammal(7, 'Monkey', 'Omnivore', 2, monkeyImage, 3),
+	new Mammal(8, 'Wolf', 'Carnivore', 5, wolfImage, 4),
+	new Mammal(9, 'Moose', 'Herbivore', 3, mooseImage, 3),
+	new Mammal(10, 'Sheep', 'Herbivore', 2, sheepImage, 2),
+	new Mammal(11, 'Boar', 'Omnivore', 3, boarImage, 3),
+	new Mammal(12, 'Lion', 'Carnivore', 5, lionImage, 4),
+	new Mammal(13, 'Elephant', 'Herbivore', 3, elephantImage, 2),
+	new Mammal(14, 'Tiger', 'Carnivore', 5, tigerImage, 5),
+	new Mammal(15, 'Rhino', 'Herbivore', 4, rhinoImage, 4),
+	new Mammal(16, 'Bear', 'Omnivore', 4, bearImage, 3),
+	new Mammal(17, 'Hippo', 'Herbivore', 4, hippoImage, 3),
+	new Mammal(18, 'Zebra', 'Herbivore', 2, zebraImage, 3),
+	new Mammal(19, 'Giraffe', 'Herbivore', 3, giraffeImage, 2),
+	new Mammal(20, 'Deer', 'Herbivore', 2, deerImage, 3),
 ];
 
 export default animalsData;
