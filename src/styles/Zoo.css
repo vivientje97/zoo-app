@@ -1,6 +1,6 @@
 .zoo {
 	text-align: center;
-	background-color: #ffd966;
+	background-color: #f0f0f0;
 	padding: 20px;
 	min-height: 100vh;
 	display: flex;
@@ -11,7 +11,8 @@
 .title {
 	font-size: 2rem;
 	margin-bottom: 20px;
-	color: #333;
+	color: #007BFF;
+	font-family: 'Arial', sans-serif;
 }
 
 .zoo-container {
@@ -34,4 +35,8 @@
 .grouped-animals-container {
 	flex: 1;
 	max-width: 400px;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
