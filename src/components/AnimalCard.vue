@@ -14,7 +14,10 @@
 <script>
 export default {
 	props: {
-		animal: Object,
+		animal: {
+			type: Object,
+			required: true,
+		},
 		animals: Array
 	},
 	data() {

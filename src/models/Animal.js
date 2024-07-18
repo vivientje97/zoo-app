@@ -62,18 +62,6 @@ export default class Animal {
 	}
 
 	interactWithUser() {
-		if (this.dangerLevel === 1) {
-			return `${this.name}, a harmless ${this.type}, is curious about you.`;
-		} else if (this.dangerLevel === 2) {
-			return `${this.name}, a ${this.type}, watches you with mild interest.`;
-		} else if (this.dangerLevel === 3) {
-			return `${this.name}, a ${this.type}, approaches you cautiously.`;
-		} else if (this.dangerLevel === 4) {
-			return `${this.name}, a ${this.type}, eyes you warily.`;
-		} else if (this.dangerLevel === 5) {
-			return `${this.name}, a dangerous ${this.type}, keeps its distance from you.`;
-		} else {
-			return `${this.name} looks at you curiously.`;
-		}
+		return `${this.name} looks at you curiously.`;
 	}
 }

@@ -2,7 +2,7 @@
   <div class="zoo">
     <h1 class="title">Welcome to the Zoo!</h1>
     <add-animal-button @animal-added="addAnimalToPool" />
-	   <button class="button is-danger" @click="resetAnimalPool">Reset Zoo</button>
+    <button class="button is-danger" @click="resetAnimalPool">Reset Zoo</button>
     <div class="zoo-container">
       <div class="animals-container">
         <animal-list :animals="animalsPool" @animal-eaten="removeEatenAnimal" />
@@ -14,13 +14,15 @@
   </div>
 </template>
 
-
 <script>
 import AddAnimalButton from '../components/AddAnimalButton.vue';
 import AnimalList from '../components/AnimalList.vue';
-import Animal from '../models/Animal.js'
+import GroupedAnimals from '../components/GroupedAnimals.vue';
 import animalsData from '../models/AnimalsData.js';
-import GroupedAnimals from '../components/GroupedAnimals.vue'
+import Mammal from '../models/Mammal.js';
+import Bird from '../models/Bird.js';
+import Fish from '../models/Fish.js';
+import Reptile from '../models/Reptile.js';
 
 export default {
 	components: {
@@ -33,24 +35,60 @@ export default {
 			animalsPool: []
 		};
 	},
-
 	methods: {
 		addAnimalToPool() {
-			const id = this.animalsPool.length + 1;
 			const randomIndex = Math.floor(Math.random() * animalsData.length);
 			const randomAnimalData = animalsData[randomIndex];
 
-			const newAnimal = new Animal(
-				id,
-				randomAnimalData.name,
-				randomAnimalData.type,
-				randomAnimalData.diet,
-				randomAnimalData.dangerLevel,
-				randomAnimalData.image,
-				randomAnimalData.speed
-			);
+			let newAnimal;
+			switch (randomAnimalData.type) {
+				case 'Mammal':
+					newAnimal = new Mammal(
+						randomAnimalData.id,
+						randomAnimalData.name,
+						randomAnimalData.diet,
+						randomAnimalData.dangerLevel,
+						randomAnimalData.image,
+						randomAnimalData.speed
+					);
+					break;
+				case 'Bird':
+					newAnimal = new Bird(
+						randomAnimalData.id,
+						randomAnimalData.name,
+						randomAnimalData.diet,
+						randomAnimalData.dangerLevel,
+						randomAnimalData.image,
+						randomAnimalData.speed
+					);
+					break;
+				case 'Fish':
+					newAnimal = new Fish(
+						randomAnimalData.id,
+						randomAnimalData.name,
+						randomAnimalData.diet,
+						randomAnimalData.dangerLevel,
+						randomAnimalData.image,
+						randomAnimalData.speed
+					);
+					break;
+				case 'Reptile':
+					newAnimal = new Reptile(
+						randomAnimalData.id,
+						randomAnimalData.name,
+						randomAnimalData.diet,
+						randomAnimalData.dangerLevel,
+						randomAnimalData.image,
+						randomAnimalData.speed
+					);
+					break;
+				default:
+					newAnimal = null;
+			}
 
-			this.animalsPool.push(newAnimal);
+			if (newAnimal) {
+				this.animalsPool.push(newAnimal);
+			}
 		},
 
 		removeEatenAnimal(animalToRemoveId) {
