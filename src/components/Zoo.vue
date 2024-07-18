@@ -19,10 +19,7 @@ import AddAnimalButton from '../components/AddAnimalButton.vue';
 import AnimalList from '../components/AnimalList.vue';
 import GroupedAnimals from '../components/GroupedAnimals.vue';
 import animalsData from '../models/AnimalsData.js';
-import Mammal from '../models/Mammal.js';
-import Bird from '../models/Bird.js';
-import Fish from '../models/Fish.js';
-import Reptile from '../models/Reptile.js';
+import { createAnimal } from '../models/AnimalAdd.js';
 
 export default {
 	components: {
@@ -40,55 +37,9 @@ export default {
 			const randomIndex = Math.floor(Math.random() * animalsData.length);
 			const randomAnimalData = animalsData[randomIndex];
 
-			let newAnimal;
-			switch (randomAnimalData.type) {
-				case 'Mammal':
-					newAnimal = new Mammal(
-						randomAnimalData.id,
-						randomAnimalData.name,
-						randomAnimalData.diet,
-						randomAnimalData.dangerLevel,
-						randomAnimalData.image,
-						randomAnimalData.speed
-					);
-					break;
-				case 'Bird':
-					newAnimal = new Bird(
-						randomAnimalData.id,
-						randomAnimalData.name,
-						randomAnimalData.diet,
-						randomAnimalData.dangerLevel,
-						randomAnimalData.image,
-						randomAnimalData.speed
-					);
-					break;
-				case 'Fish':
-					newAnimal = new Fish(
-						randomAnimalData.id,
-						randomAnimalData.name,
-						randomAnimalData.diet,
-						randomAnimalData.dangerLevel,
-						randomAnimalData.image,
-						randomAnimalData.speed
-					);
-					break;
-				case 'Reptile':
-					newAnimal = new Reptile(
-						randomAnimalData.id,
-						randomAnimalData.name,
-						randomAnimalData.diet,
-						randomAnimalData.dangerLevel,
-						randomAnimalData.image,
-						randomAnimalData.speed
-					);
-					break;
-				default:
-					newAnimal = null;
-			}
+			const newAnimal = createAnimal(randomAnimalData);
 
-			if (newAnimal) {
-				this.animalsPool.push(newAnimal);
-			}
+			this.animalsPool.push(newAnimal);
 		},
 
 		removeEatenAnimal(animalToRemoveId) {
