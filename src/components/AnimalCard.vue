@@ -36,12 +36,12 @@ export default {
 			this.interactionResult = this.animal.interactWithUser();
 		},
 		interactWithAnotherAnimal() {
-			const otherAnimals = this.animals.filter(a => a.id !== this.animal.id && !a.isEaten);
+			const otherAnimals = this.animals.filter(a => a.id !== this.animal.id && !a.eaten);
 			if (otherAnimals.length > 0) {
 				const randomAnimal = otherAnimals[Math.floor(Math.random() * otherAnimals.length)];
 				this.interactionResult = this.animal.interactWith(randomAnimal);
 
-				if (this.interactionResult.includes('eats')) {
+				if (this.interactionResult.includes('eats') || this.interactionResult.includes('defeated')) {
 					this.$emit('animal-eaten', randomAnimal.id);
 				}
 			}

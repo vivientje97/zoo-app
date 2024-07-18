@@ -57,8 +57,8 @@ export default class Animal {
 		const thisChance = this.dangerLevel / (this.dangerLevel + otherAnimal.dangerLevel);
 		const outcome = Math.random() < thisChance ? this : otherAnimal;
 
-		outcome.eaten = true;
-		return `${outcome.name} wins the fight! ${otherAnimal.name} is defeated.`;
+		otherAnimal.eaten = true;
+		return `${outcome.name} wins the fight! ${otherAnimal.name} is defeated and eaten.`;
 	}
 
 	interactWithUser() {
