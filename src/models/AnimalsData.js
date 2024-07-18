@@ -1,7 +1,7 @@
-import Mammal from './Mammal';
-import Bird from './Bird';
-import Fish from './Fish';
-import Reptile from './Reptile';
+import Mammal from './Mammal.js';
+import Bird from './Bird.js';
+import Fish from './Fish.js';
+import Reptile from './Reptile.js';
 
 import chickenImage from '../assets/Chicken.gif';
 import crabImage from '../assets/Crab.gif';

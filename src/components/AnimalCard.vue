@@ -2,11 +2,13 @@
   <div v-if="!animal.isEaten" class="animal-card">
     <img :src="animal.image" :alt="animal.name" class="animal-image" />
     <h3>{{ animal.name }}</h3>
-    <button @click="interactWithUser">Interact with User</button>
+	  <button @click="interactWithUser">Interact with User</button>
     <div v-if="animals.length > 1">
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>
     </div>
+	  <p>{{ animal.id.interact}}</p>
     <p :class="interactionResultClass" class="interaction-result">{{ interactionResult }}</p>
+	  <p class="general-interaction">{{ interactionMessage }}</p>
   </div>
 </template>
 
@@ -19,6 +21,7 @@ export default {
 	data() {
 		return {
 			interactionResult: '',
+			interactionMessage: this.animal.interact()
 		};
 	},
 	computed: {

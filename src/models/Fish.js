@@ -6,6 +6,6 @@ export default class Fish extends Animal {
 	}
 
 	interact() {
-		return `${this.name} the fish swims around you.`;
+		return `${this.name} the fish swims gracefully.`;
 	}
 }

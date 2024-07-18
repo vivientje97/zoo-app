@@ -10,6 +10,10 @@ export default class Animal {
 		this.eaten = false;
 	}
 
+	interact() {
+		return `${this.name} interacts with something.`;
+	}
+
 	interactWith(otherAnimal) {
 		if (this.diet === 'Herbivore' || this.diet === 'Omnivore') {
 			if ((otherAnimal.diet === 'Herbivore' || otherAnimal.diet === 'Omnivore') && otherAnimal.dangerLevel < this.dangerLevel) {
