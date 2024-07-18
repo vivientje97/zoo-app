@@ -1,4 +1,4 @@
-import Animal from './Animal';
+import Animal from './Animal.js';
 
 export default class Fish extends Animal {
 	constructor(id, name, diet, dangerLevel, image, speed) {
