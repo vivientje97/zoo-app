@@ -7,7 +7,7 @@
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>
     </div>
 	  <p>{{ animal.id.interact}}</p>
-    <p :class="interactionResultClass" class="interaction-result">{{ interactionResult }}</p>
+	  <p :class="interactionResultClass" class="interaction-result">{{ interactionResult }}</p>
 	  <p class="general-interaction">{{ interactionMessage }}</p>
   </div>
 </template>
