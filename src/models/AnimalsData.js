@@ -1,50 +1,45 @@
-import Mammal from './Mammal.js';
-import Bird from './Bird.js';
-import Fish from './Fish.js';
-import Reptile from './Reptile.js';
-
-import chickenImage from '../assets/Chicken.gif';
-import crabImage from '../assets/Crab.gif';
-import turtleImage from '../assets/Turtle.gif';
-import toadImage from '../assets/Toad.gif';
-import gorillaImage from '../assets/Gorilla.gif';
-import frogImage from '../assets/Frog.gif';
-import monkeyImage from '../assets/Monkey.gif';
-import wolfImage from '../assets/Wolf.gif';
-import mooseImage from '../assets/Moose.gif';
-import sheepImage from '../assets/Sheep.gif';
-import boarImage from '../assets/Boar.gif';
-import lionImage from '../assets/Lion.png';
-import elephantImage from '../assets/Elephant.png';
-import tigerImage from '../assets/Tiger.png';
-import rhinoImage from '../assets/Rhino.png';
-import bearImage from '../assets/Bear.png';
-import hippoImage from '../assets/Hippo.png';
-import zebraImage from '../assets/Zebra.png';
-import giraffeImage from '../assets/Giraffe.png';
-import deerImage from '../assets/Deer.png';
+import Bear from './species/Bear.js';
+import Boar from './species/Boar.js';
+import Chicken from './species/Chicken.js';
+import Crab from './species/Crab.js';
+import Deer from './species/Deer.js';
+import Elephant from './species/Elephant.js';
+import Frog from './species/Frog.js';
+import Giraffe from './species/Giraffe.js';
+import Gorilla from './species/Gorilla.js';
+import Lion from './species/Lion.js';
+import Monkey from './species/Monkey.js';
+import Moose from './species/Moose.js';
+import Rhino from './species/Rhino.js';
+import Shark from './species/Shark.js';
+import Sheep from './species/Sheep.js';
+import Tiger from './species/Tiger.js';
+import Toad from './species/Toad.js';
+import Turtle from './species/Turtle.js';
+import Wolf from './species/Wolf.js';
+import Zebra from './species/Zebra.js';
 
 const animalsData = [
-	new Bird(1, 'Chicken', 'Herbivore', 1, chickenImage, 3),
-	new Fish(2, 'Crab', 'Omnivore', 1, crabImage, 1),
-	new Reptile(3, 'Turtle', 'Omnivore', 1, turtleImage, 2),
-	new Reptile(4, 'Toad', 'Omnivore', 1, toadImage, 1),
-	new Mammal(5, 'Gorilla', 'Herbivore', 4, gorillaImage, 2),
-	new Reptile(6, 'Frog', 'Omnivore', 1, frogImage, 1),
-	new Mammal(7, 'Monkey', 'Omnivore', 2, monkeyImage, 3),
-	new Mammal(8, 'Wolf', 'Carnivore', 5, wolfImage, 4),
-	new Mammal(9, 'Moose', 'Herbivore', 3, mooseImage, 3),
-	new Mammal(10, 'Sheep', 'Herbivore', 2, sheepImage, 2),
-	new Mammal(11, 'Boar', 'Omnivore', 3, boarImage, 3),
-	new Mammal(12, 'Lion', 'Carnivore', 5, lionImage, 4),
-	new Mammal(13, 'Elephant', 'Herbivore', 3, elephantImage, 2),
-	new Mammal(14, 'Tiger', 'Carnivore', 5, tigerImage, 5),
-	new Mammal(15, 'Rhino', 'Herbivore', 4, rhinoImage, 4),
-	new Mammal(16, 'Bear', 'Omnivore', 4, bearImage, 3),
-	new Mammal(17, 'Hippo', 'Herbivore', 4, hippoImage, 3),
-	new Mammal(18, 'Zebra', 'Herbivore', 2, zebraImage, 3),
-	new Mammal(19, 'Giraffe', 'Herbivore', 3, giraffeImage, 2),
-	new Mammal(20, 'Deer', 'Herbivore', 2, deerImage, 3),
+	new Bear(),
+	new Boar(),
+	new Chicken(),
+	new Crab(),
+	new Deer(),
+	new Elephant(),
+	new Frog(),
+	new Giraffe(),
+	new Gorilla(),
+	new Lion(),
+	new Monkey(),
+	new Moose(),
+	new Rhino(),
+	new Shark(),
+	new Sheep(),
+	new Tiger(),
+	new Toad(),
+	new Turtle(),
+	new Wolf(),
+	new Zebra()
 ];
 
 export default animalsData;

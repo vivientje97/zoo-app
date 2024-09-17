@@ -1,27 +1,30 @@
 import Animal from './Animal.js';
 
 export default class Fish extends Animal {
-	constructor(id, name, diet, dangerLevel, image, speed) {
-		super(id, name, 'Fish', diet, dangerLevel, image, speed);
+	constructor(name, diet, dangerLevel, image, speed) {
+		super(name, diet, dangerLevel, image, speed)
+		this.waterType = ''
 	}
-
-	interact() {
-		return `${this.name} the fish swims gracefully.`;
+	
+	swim() {
+		return `${this.name} the fish swims gracefully in ${this.waterType} water.`;
 	}
-
+	
 	interactWithUser() {
 		if (this.dangerLevel === 1) {
-			return `${this.name}, a harmless fish, swims near you curiously.`;
+			return `${this.name}, a peaceful fish, swims near you.`
 		} else if (this.dangerLevel === 2) {
-			return `${this.name}, a fish, watches you from the water.`;
-		} else if (this.dangerLevel === 3) {
-			return `${this.name}, a fish, cautiously swims around you.`;
-		} else if (this.dangerLevel === 4) {
-			return `${this.name}, a fish, eyes you warily from a distance.`;
-		} else if (this.dangerLevel === 5) {
-			return `${this.name}, a dangerous fish, keeps its distance from you.`;
+			return `${this.name}, a fish, swims away from you.`
 		} else {
-			return `${this.name} the fish looks at you curiously from the water.`;
+			return `${this.name}, a dangerous fish, hides in the depths.`
 		}
+	}
+	
+	// Overriding the interact method to handle fish-specific interactions
+	interactWith(otherAnimal) {
+		if (otherAnimal instanceof Fish) {
+			return `${this.name} and ${otherAnimal.name} are both fish, so they might swim together.`
+		}
+		return super.interactWith(otherAnimal)
 	}
 }

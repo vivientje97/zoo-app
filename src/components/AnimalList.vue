@@ -11,23 +11,29 @@
 </template>
 
 <script>
-import AnimalCard from './AnimalCard.vue';
+import AnimalCard from './AnimalCard.vue'
 
 export default {
 	components: {
 		AnimalCard
 	},
 	props: {
-		animals: Array
+		animals: {
+			type: Array,
+			required: true,
+			validator(value) {
+				return value.every(animal => typeof animal === 'object')
+			}
+		}
 	},
 	computed: {
 		filteredAnimals() {
-			return this.animals.filter(animal => !animal.isEaten);
+			return this.animals.filter(animal => !animal.eaten)
 		}
 	},
 	methods: {
 		handleAnimalEaten(animalId) {
-			this.$emit('animal-eaten', animalId);
+			this.$emit('animal-eaten', animalId)
 		}
 	}
 }

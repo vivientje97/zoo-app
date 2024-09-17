@@ -1,27 +1,31 @@
 import Animal from './Animal.js';
 
 export default class Reptile extends Animal {
-	constructor(id, name, diet, dangerLevel, image, speed) {
-		super(id, name, 'Reptile', diet, dangerLevel, image, speed);
+	constructor(name, diet, dangerLevel, image, speed) {
+		super(name, 'Reptile', diet, dangerLevel, image, speed)
+		this.canSwim = true
+		this.scaleType = ''
 	}
-
-	interact() {
-		return `${this.name} the reptile sunbathes lazily.`;
+	
+	shedSkin() {
+		return `${this.name} the reptile is shedding its ${this.scaleType} skin.`;
 	}
-
+	
 	interactWithUser() {
 		if (this.dangerLevel === 1) {
-			return `${this.name}, a harmless reptile, slithers near you curiously.`;
+			return `${this.name}, a harmless reptile, basks in the sun.`
 		} else if (this.dangerLevel === 2) {
-			return `${this.name}, a reptile, watches you from a distance.`;
-		} else if (this.dangerLevel === 3) {
-			return `${this.name}, a reptile, cautiously approaches you.`;
-		} else if (this.dangerLevel === 4) {
-			return `${this.name}, a reptile, eyes you warily.`;
-		} else if (this.dangerLevel === 5) {
-			return `${this.name}, a dangerous reptile, keeps its distance from you.`;
+			return `${this.name}, a reptile, watches you with interest.`
 		} else {
-			return `${this.name} the reptile looks at you curiously.`;
+			return `${this.name}, a dangerous reptile, remains hidden.`
 		}
+	}
+	
+	// Overriding the interact method to handle reptile-specific interactions
+	interactWith(otherAnimal) {
+		if (otherAnimal instanceof Reptile) {
+			return `${this.name} and ${otherAnimal.name} are both reptiles, so they might compete or bask together.`;
+		}
+		return super.interactWith(otherAnimal);
 	}
 }

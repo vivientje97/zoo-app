@@ -28,25 +28,28 @@ export default {
 	data() {
 		return {
 			selectedGrouping: 'type'
-		};
+		}
 	},
 	computed: {
 		groupedAnimals() {
-			const grouped = {};
+			const grouped = {}
 			this.animals.forEach(animal => {
-				const group = animal[this.selectedGrouping];
+				const group = animal[this.selectedGrouping]
+				if (group === undefined || group === null) {
+					return
+				}
 				if (!grouped[group]) {
 					grouped[group] = {
 						group: group,
 						animals: []
-					};
+					}
 				}
-				grouped[group].animals.push(animal);
-			});
-			return Object.values(grouped);
+				grouped[group].animals.push(animal)
+			})
+			return Object.values(grouped)
 		}
 	}
-};
+}
 </script>
 
 <style src="../styles/GroupedAnimals.css"></style>

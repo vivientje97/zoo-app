@@ -1,27 +1,33 @@
 import Animal from './Animal.js';
 
 export default class Bird extends Animal {
-	constructor(id, name, diet, dangerLevel, image, speed) {
-		super(id, name, 'Bird', diet, dangerLevel, image, speed);
+	constructor(name, diet, dangerLevel, image, speed) {
+		super(name, 'Bird', diet, dangerLevel, image, speed)
+		this.canFly = true
 	}
-
-	interact() {
-		return `${this.name} the bird chirps happily.`;
+	
+	fly() {
+		if(this.canFly){
+			return `${this.name} is flying in the air.`
+		}
+		return `${this.name} cannot fly.`
 	}
-
+	
 	interactWithUser() {
 		if (this.dangerLevel === 1) {
-			return `${this.name}, a harmless bird, flutters around you curiously.`;
+			return `${this.name}, a friendly bird, chirps and flutters its wings.`
 		} else if (this.dangerLevel === 2) {
-			return `${this.name}, a bird, watches you from a distance.`;
-		} else if (this.dangerLevel === 3) {
-			return `${this.name}, a bird, cautiously approaches you.`;
-		} else if (this.dangerLevel === 4) {
-			return `${this.name}, a bird, eyes you warily.`;
-		} else if (this.dangerLevel === 5) {
-			return `${this.name}, a dangerous bird, keeps its distance from you.`;
+			return `${this.name}, a bird, observes you from a branch.`
 		} else {
-			return `${this.name} the bird looks at you curiously.`;
+			return `${this.name}, a wary bird, keeps its distance.`
 		}
+	}
+	
+	// Overriding the interact method to handle bird-specific interactions
+	interactWith(otherAnimal) {
+		if (otherAnimal instanceof Bird) {
+			return `${this.name} and ${otherAnimal.name} are both birds, so they might sing or fly together.`
+		}
+		return super.interactWith(otherAnimal)
 	}
 }

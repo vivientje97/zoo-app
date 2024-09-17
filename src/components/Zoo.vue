@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import AddAnimalButton from '../components/AddAnimalButton.vue';
-import AnimalList from '../components/AnimalList.vue';
-import GroupedAnimals from '../components/GroupedAnimals.vue';
-import animalsData from '../models/AnimalsData.js';
-import { createAnimal } from '../models/AnimalAdd.js';
+import AddAnimalButton from '../components/AddAnimalButton.vue'
+import AnimalList from '../components/AnimalList.vue'
+import GroupedAnimals from '../components/GroupedAnimals.vue'
+import animalsData from '../models/AnimalsData.js'
+import { createAnimal } from '../models/AnimalAdd.js'
 
 export default {
 	components: {
@@ -34,20 +34,24 @@ export default {
 	},
 	methods: {
 		addAnimalToPool() {
-			const randomIndex = Math.floor(Math.random() * animalsData.length);
-			const randomAnimalData = animalsData[randomIndex];
-
-			const newAnimal = createAnimal(randomAnimalData);
-
-			this.animalsPool.push(newAnimal);
+			try {
+				const randomIndex = Math.floor(Math.random() * animalsData.length)
+				const randomAnimalData = animalsData[randomIndex]
+				
+				const newAnimal = createAnimal(randomAnimalData.id, randomAnimalData.constructor.name)
+				
+				this.animalsPool.push(newAnimal)
+			} catch (error) {
+				console.error('Error adding animal to pool:', error)
+			}
 		},
 
 		removeEatenAnimal(animalToRemoveId) {
-			this.animalsPool = this.animalsPool.filter(animal => animal.id !== animalToRemoveId);
+			this.animalsPool = this.animalsPool.filter(animal => animal.id !== animalToRemoveId)
 		},
 
 		resetAnimalPool() {
-			this.animalsPool = [];
+			this.animalsPool = []
 		},
 	}
 }
