@@ -23,10 +23,9 @@ export default class Bird extends Animal {
 		}
 	}
 	
-	// Overriding the interact method to handle bird-specific interactions
 	interactWith(otherAnimal) {
-		if (otherAnimal instanceof Bird) {
-			return `${this.name} and ${otherAnimal.name} are both birds, so they might sing or fly together.`
+		if (otherAnimal instanceof Bird && this.diet === otherAnimal.diet) {
+			return `${this.name} and ${otherAnimal.name} chirp or fly together.`
 		}
 		return super.interactWith(otherAnimal)
 	}

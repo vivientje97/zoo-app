@@ -21,10 +21,9 @@ export default class Reptile extends Animal {
 		}
 	}
 	
-	// Overriding the interact method to handle reptile-specific interactions
 	interactWith(otherAnimal) {
-		if (otherAnimal instanceof Reptile) {
-			return `${this.name} and ${otherAnimal.name} are both reptiles, so they might compete or bask together.`;
+		if (otherAnimal instanceof Reptile && this.diet === otherAnimal.diet) {
+			return `${this.name} and ${otherAnimal.name} bask in the sun together.`;
 		}
 		return super.interactWith(otherAnimal);
 	}

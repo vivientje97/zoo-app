@@ -28,10 +28,9 @@ export default class Mammal extends Animal {
 		}
 	}
 	
-	// Overriding the interact method to handle mammal-specific interactions
 	interactWith(otherAnimal) {
-		if (otherAnimal instanceof Mammal) {
-			return `${this.name} and ${otherAnimal.name} are both mammals, so they might play or compete.`
+		if (otherAnimal instanceof Mammal && this.diet === otherAnimal.diet) {
+			return `${this.name} and ${otherAnimal.name}, both mammals, interact in a friendly way..`
 		}
 		return super.interactWith(otherAnimal)
 	}

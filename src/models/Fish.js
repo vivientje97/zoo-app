@@ -20,10 +20,9 @@ export default class Fish extends Animal {
 		}
 	}
 	
-	// Overriding the interact method to handle fish-specific interactions
 	interactWith(otherAnimal) {
-		if (otherAnimal instanceof Fish) {
-			return `${this.name} and ${otherAnimal.name} are both fish, so they might swim together.`
+		if (otherAnimal instanceof Fish && this.diet === otherAnimal.diet) {
+			return `${this.name} and ${otherAnimal.name} swim together peacefully.`
 		}
 		return super.interactWith(otherAnimal)
 	}
