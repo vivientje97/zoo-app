@@ -3,7 +3,7 @@ import zebraImage from '../../assets/Zebra.png'
 
 export default class Zebra extends Mammal {
 	constructor() {
-		super( 'Zebra', 'Herbivore', 3, zebraImage, 4)
+		super( 'Zebra', 'Herbivore', 3, zebraImage, 5)
 		this.furType = 'striped'
 	}
 	

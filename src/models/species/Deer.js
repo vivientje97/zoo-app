@@ -3,7 +3,7 @@ import deerImage from '../../assets/Deer.png'
 
 export default class Deer extends Mammal {
 	constructor() {
-		super( 'Deer', 'Herbivore', 3, deerImage, 4)
+		super( 'Deer', 'Herbivore', 3, deerImage, 6)
 	}
 	
 	interactWithUser() {

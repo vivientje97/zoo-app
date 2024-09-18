@@ -3,7 +3,7 @@ import mooseImage from '../../assets/Moose.gif'
 
 export default class Moose extends Mammal {
 	constructor() {
-		super( 'Moose', 'Herbivore', 4, mooseImage, 3)
+		super( 'Moose', 'Herbivore', 4, mooseImage, 4)
 	}
 	
 	interactWithUser() {

@@ -31,6 +31,10 @@ export default class Animal {
 	
 	handleCarnivoreInteraction(otherAnimal) {
 		if (this.size > otherAnimal.size) {
+			const escapeChance = otherAnimal.speed / (this.speed + otherAnimal.speed)
+			if (Math.random() < escapeChance) {
+				return `${otherAnimal.name} escapes from ${this.name} due to its higher speed!`
+			}
 			const chanceOfEating = this.size / (this.size + otherAnimal.size)
 			if (Math.random() < chanceOfEating) {
 				otherAnimal.eaten = true
@@ -67,6 +71,11 @@ export default class Animal {
 			}
 		} else if (otherAnimal.diet === 'Herbivore') {
 			if (this.size > otherAnimal.size) {
+				const escapeChance = otherAnimal.speed / (this.speed + otherAnimal.speed)
+				if (Math.random() < escapeChance) {
+					return `${otherAnimal.name} escapes from ${this.name} thanks to its higher speed!`
+				}
+				
 				const chanceOfEating = this.size / (this.size + otherAnimal.size)
 				if (Math.random() < chanceOfEating) {
 					otherAnimal.eaten = true

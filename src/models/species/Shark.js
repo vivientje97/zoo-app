@@ -2,7 +2,7 @@ import Fish from '../Fish.js'
 
 export default class Shark extends Fish {
 	constructor( image) {
-		super( 'Shark', 'Carnivore', 4, image, 5)
+		super( 'Shark', 'Carnivore', 4, image, 4)
 		this.waterType = 'ocean'
 	}
 	
