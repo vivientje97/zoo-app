@@ -22,6 +22,8 @@ export default class Animal {
 			return this.handleCarnivoreInteraction(otherAnimal)
 		} else if (this.diet === 'Herbivore') {
 			return this.handleHerbivoreInteraction(otherAnimal)
+		} else if (this.diet === 'Omnivore') {
+			return this.handleOmnivoreInteraction(otherAnimal)
 		} else {
 			return `${this.name} and ${otherAnimal.name} interact cautiously.`
 		}
@@ -42,6 +44,22 @@ export default class Animal {
 			return `${this.name} tries to avoid ${otherAnimal.name} and escapes.`
 		} else {
 			return `${this.name} and ${otherAnimal.name} graze together peacefully.`
+		}
+	}
+	
+	handleOmnivoreInteraction(otherAnimal) {
+		if (otherAnimal.diet === 'Carnivore') {
+			return `${this.name} cautiously interacts with ${otherAnimal.name}, avoiding conflict.`
+		} else if (otherAnimal.diet === 'Herbivore') {
+			const chanceOfEating = this.dangerLevel / (this.dangerLevel + otherAnimal.dangerLevel)
+			if (Math.random() < chanceOfEating) {
+				otherAnimal.eaten = true;
+				return `${this.name} eats the unsuspecting ${otherAnimal.name}.`
+			} else {
+				return `${this.name} tries to eat ${otherAnimal.name}, but fails.`
+			}
+		} else {
+			return `${this.name} and ${otherAnimal.name} cautiously share resources.`
 		}
 	}
 	
