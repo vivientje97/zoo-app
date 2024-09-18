@@ -8,7 +8,7 @@ export default class Reptile extends Animal {
 	}
 	
 	shedSkin() {
-		return `${this.name} the reptile is shedding its ${this.scaleType} skin.`;
+		return `${this.name} the reptile is shedding its ${this.scaleType.toLowerCase()} skin.`;
 	}
 	
 	interactWithUser() {
@@ -23,7 +23,7 @@ export default class Reptile extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Reptile && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name} bask in the sun together.`;
+			return `${this.name} and ${otherAnimal.name.toLowerCase()} bask in the sun together.`;
 		}
 		return super.interactWith(otherAnimal);
 	}

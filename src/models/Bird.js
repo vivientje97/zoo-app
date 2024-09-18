@@ -25,7 +25,7 @@ export default class Bird extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Bird && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name} chirp or fly together.`
+			return `${this.name} and ${otherAnimal.name.toLowerCase()} chirp or fly together.`
 		}
 		return super.interactWith(otherAnimal)
 	}

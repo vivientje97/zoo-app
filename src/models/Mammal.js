@@ -9,7 +9,7 @@ export default class Mammal extends Animal {
 	
 	groom() {
 		if (this.hasFur){
-			return `${this.name} the mammal is grooming its ${this.furType} fur.`	
+			return `${this.name} the mammal is grooming its ${this.furType.toLowerCase()} fur.`	
 		}
 		return `${this.name} the mammal does not have any fur.`
 	}
@@ -30,7 +30,7 @@ export default class Mammal extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Mammal && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name}, both mammals, interact in a friendly way.`
+			return `${this.name} and ${otherAnimal.name.toLowerCase()}, both mammals, interact in a friendly way.`
 		}
 		return super.interactWith(otherAnimal)
 	}

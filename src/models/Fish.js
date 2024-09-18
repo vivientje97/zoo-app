@@ -7,7 +7,7 @@ export default class Fish extends Animal {
 	}
 	
 	swim() {
-		return `${this.name} the fish swims gracefully in ${this.waterType} water.`;
+		return `${this.name} the fish swims gracefully in ${this.waterType.toLowerCase()} water.`;
 	}
 	
 	interactWithUser() {
@@ -22,7 +22,7 @@ export default class Fish extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Fish && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name} swim together peacefully.`
+			return `${this.name} and ${otherAnimal.name.toLowerCase()} swim together peacefully.`
 		}
 		return super.interactWith(otherAnimal)
 	}
