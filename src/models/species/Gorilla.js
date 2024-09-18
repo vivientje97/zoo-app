@@ -3,7 +3,7 @@ import gorillaImage from '../../assets/Gorilla.gif'
 
 export default class Gorilla extends Mammal {
 	constructor() {
-		super( 'Gorilla', 'Herbivore', 3, gorillaImage, 3);
+		super( 'Gorilla', 'Herbivore', 6, gorillaImage, 3);
 	}
 	
 	interactWithUser() {

@@ -3,7 +3,7 @@ import monkeyImage from '../../assets/Monkey.gif'
 
 export default class Monkey extends Mammal {
 	constructor() {
-		super( 'Monkey', 'Omnivore', 3, monkeyImage, 4)
+		super( 'Monkey', 'Omnivore', 2, monkeyImage, 4)
 		this.furType = 'short'
 	}
 	

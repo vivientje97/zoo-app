@@ -2,12 +2,12 @@ let currentId = 1
 
 export default class Animal {
 	constructor(
-		name, type, diet = 'Omnivore', dangerLevel = 1, image = '', speed = 1) {
+		name, type, diet = 'Omnivore', size = 1, image = '', speed = 1) {
 		this.id = currentId++
 		this.name = name
 		this.type = type
 		this.diet = diet
-		this.dangerLevel = dangerLevel
+		this.size = size
 		this.image = image
 		this.speed = speed
 		this.eaten = false
@@ -30,33 +30,55 @@ export default class Animal {
 	}
 	
 	handleCarnivoreInteraction(otherAnimal) {
-		const chanceOfEating = this.dangerLevel / (this.dangerLevel + otherAnimal.dangerLevel)
-		if (Math.random() < chanceOfEating) {
-			otherAnimal.eaten = true
-			return `${this.name} attacks and eats ${otherAnimal.name}!`
+		if (this.size > otherAnimal.size) {
+			const chanceOfEating = this.size / (this.size + otherAnimal.size)
+			if (Math.random() < chanceOfEating) {
+				otherAnimal.eaten = true
+				return `${this.name} attacks and eats ${otherAnimal.name}!`
+			} else {
+				return `${this.name} tries to catch ${otherAnimal.name} but fails.`
+			}
 		} else {
-			return `${this.name} tries to catch ${otherAnimal.name} but fails.`
+			return `${this.name} does not see ${otherAnimal.name} as prey and moves on.`
 		}
 	}
 	
 	handleHerbivoreInteraction(otherAnimal) {
 		if (otherAnimal.diet === 'Carnivore') {
-			return `${this.name} tries to avoid ${otherAnimal.name} and escapes.`
+			if (otherAnimal.size > this.size) {
+				return `${this.name} tries to escape from ${otherAnimal.name}, sensing danger.`
+			} else {
+				return `${this.name} cautiously watches ${otherAnimal.name}, but stays calm.`
+			}
 		} else {
+			if (this.type === 'Fish' || this.type === 'Reptile') {
+				return `${this.name} and ${otherAnimal.name} coexist peacefully in their environment.`
+			}
 			return `${this.name} and ${otherAnimal.name} graze together peacefully.`
 		}
 	}
 	
 	handleOmnivoreInteraction(otherAnimal) {
 		if (otherAnimal.diet === 'Carnivore') {
-			return `${this.name} cautiously interacts with ${otherAnimal.name}, avoiding conflict.`
-		} else if (otherAnimal.diet === 'Herbivore') {
-			const chanceOfEating = this.dangerLevel / (this.dangerLevel + otherAnimal.dangerLevel)
-			if (Math.random() < chanceOfEating) {
-				otherAnimal.eaten = true;
-				return `${this.name} eats the unsuspecting ${otherAnimal.name}.`
+			if (otherAnimal.size > this.size) {
+				return `${this.name} avoids ${otherAnimal.name}, sensing a threat.`
 			} else {
-				return `${this.name} tries to eat ${otherAnimal.name}, but fails.`
+				return `${this.name} cautiously interacts with ${otherAnimal.name}.`
+			}
+		} else if (otherAnimal.diet === 'Herbivore') {
+			if (this.size > otherAnimal.size) {
+				const chanceOfEating = this.size / (this.size + otherAnimal.size)
+				if (Math.random() < chanceOfEating) {
+					otherAnimal.eaten = true;
+					return `${this.name} eats the unsuspecting ${otherAnimal.name}.`
+				} else {
+					return `${this.name} tries to eat ${otherAnimal.name}, but fails.`
+				}
+			} else {
+				if (this.type === 'Fish' || this.type === 'Reptile') {
+					return `${this.name} and ${otherAnimal.name} coexist peacefully in the same space.`
+				}
+				return `${this.name} and ${otherAnimal.name} graze cautiously side by side.`
 			}
 		} else {
 			return `${this.name} and ${otherAnimal.name} cautiously share resources.`
@@ -68,6 +90,6 @@ export default class Animal {
 	}
 	
 	describe() {
-		return `${this.name} is a ${this.diet} ${this.type} with a danger level of ${this.dangerLevel}.`
+		return `${this.name} is a ${this.diet} ${this.type} with a danger level of ${this.size}.`
 	}
 }

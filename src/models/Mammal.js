@@ -1,8 +1,8 @@
 import Animal from './Animal.js'
 
 export default class Mammal extends Animal {
-	constructor(name, diet, dangerLevel, image, speed, furType = 'generic') {
-		super(name, 'Mammal', diet, dangerLevel, image, speed)
+	constructor(name, diet, size, image, speed, furType = 'generic') {
+		super(name, 'Mammal', diet, size, image, speed)
 		this.hasFur = true
 		this.furType = furType
 	}
@@ -15,13 +15,13 @@ export default class Mammal extends Animal {
 	}
 	
 	interactWithUser() {
-		if (this.dangerLevel === 1) {
+		if (this.size === 1) {
 			return `${this.name}, a gentle mammal, sniffs you curiously.`
-		} else if (this.dangerLevel === 2) {
+		} else if (this.size === 2) {
 			return `${this.name}, a mammal, watches you with mild interest.`
-		} else if (this.dangerLevel === 3) {
+		} else if (this.size === 3) {
 			return `${this.name}, a mammal, approaches you cautiously.`
-		} else if (this.dangerLevel === 4) {
+		} else if (this.size === 4) {
 			return `${this.name}, a mammal, eyes you warily.`
 		} else {
 			return `${this.name}, a dangerous mammal, keeps its distance.`
@@ -30,7 +30,7 @@ export default class Mammal extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Mammal && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name}, both mammals, interact in a friendly way..`
+			return `${this.name} and ${otherAnimal.name}, both mammals, interact in a friendly way.`
 		}
 		return super.interactWith(otherAnimal)
 	}

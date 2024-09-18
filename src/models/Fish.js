@@ -1,8 +1,8 @@
 import Animal from './Animal.js';
 
 export default class Fish extends Animal {
-	constructor(name, diet, dangerLevel, image, speed) {
-		super(name, diet, dangerLevel, image, speed)
+	constructor(name, diet, size, image, speed) {
+		super(name, diet, size, image, speed)
 		this.waterType = ''
 	}
 	
@@ -11,9 +11,9 @@ export default class Fish extends Animal {
 	}
 	
 	interactWithUser() {
-		if (this.dangerLevel === 1) {
+		if (this.size === 1) {
 			return `${this.name}, a peaceful fish, swims near you.`
-		} else if (this.dangerLevel === 2) {
+		} else if (this.size === 2) {
 			return `${this.name}, a fish, swims away from you.`
 		} else {
 			return `${this.name}, a dangerous fish, hides in the depths.`

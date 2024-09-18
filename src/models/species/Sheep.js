@@ -3,7 +3,7 @@ import sheepImage from '../../assets/Sheep.gif'
 
 export default class Sheep extends Mammal {
 	constructor() {
-		super( 'Sheep', 'Herbivore', 1, sheepImage, 2)
+		super( 'Sheep', 'Herbivore', 2, sheepImage, 2)
 	}
 	
 	interactWithUser() {

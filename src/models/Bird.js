@@ -1,8 +1,8 @@
 import Animal from './Animal.js';
 
 export default class Bird extends Animal {
-	constructor(name, diet, dangerLevel, image, speed) {
-		super(name, 'Bird', diet, dangerLevel, image, speed)
+	constructor(name, diet, size, image, speed) {
+		super(name, 'Bird', diet, size, image, speed)
 		this.canFly = true
 	}
 	
@@ -14,9 +14,9 @@ export default class Bird extends Animal {
 	}
 	
 	interactWithUser() {
-		if (this.dangerLevel === 1) {
+		if (this.size === 1) {
 			return `${this.name}, a friendly bird, chirps and flutters its wings.`
-		} else if (this.dangerLevel === 2) {
+		} else if (this.size === 2) {
 			return `${this.name}, a bird, observes you from a branch.`
 		} else {
 			return `${this.name}, a wary bird, keeps its distance.`

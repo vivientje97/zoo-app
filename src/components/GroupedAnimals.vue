@@ -5,7 +5,7 @@
 		<select id="grouping" v-model="selectedGrouping">
 			<option value="type">Type</option>
 			<option value="diet">Diet</option>
-			<option value="dangerLevel">Danger Level</option>
+			<option value="size">Danger Level</option>
 			<option value="speed">Speed</option>
 		</select>
     </div>
@@ -13,7 +13,7 @@
       <h3>{{ animalGroup.group }}</h3>
       <ul>
         <li v-for="animal in animalGroup.animals" :key="animal.id">
-          <strong>{{ animal.name }}</strong> - Diet: {{ animal.diet }}, Danger Level: {{ animal.dangerLevel }}, Speed: {{ animal.speed }}
+          <strong>{{ animal.name }}</strong> - Diet: {{ animal.diet }}, Danger Level: {{ animal.size }}, Speed: {{ animal.speed }}
         </li>
       </ul>
     </div>

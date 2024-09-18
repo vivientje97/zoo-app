@@ -3,7 +3,7 @@ import wolfImage from '../../assets/Wolf.gif'
 
 export default class Wolf extends Mammal {
 	constructor() {
-		super( 'Wolf', 'Carnivore', 2, wolfImage, 4, 'warm and fluffy')
+		super( 'Wolf', 'Carnivore', 3, wolfImage, 4, 'warm and fluffy')
 		this.hasFur = true
 	}
 	

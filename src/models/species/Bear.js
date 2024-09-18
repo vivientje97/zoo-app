@@ -3,7 +3,7 @@ import bearImage from '../../assets/Bear.png'
 
 export default class Bear extends Mammal {
 	constructor() {
-		super('Bear', 'Omnivore', 4, bearImage, 2)
+		super('Bear', 'Omnivore', 5, bearImage, 2)
 		this.furType = 'thick'
 	}
 	

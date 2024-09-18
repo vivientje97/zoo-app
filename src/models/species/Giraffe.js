@@ -3,7 +3,7 @@ import giraffeImage from '../../assets/Giraffe.png'
 
 export default class Giraffe extends Mammal {
 	constructor() {
-		super( 'Giraffe', 'Herbivore', 1, giraffeImage, 3)
+		super( 'Giraffe', 'Herbivore', 3, giraffeImage, 3)
 	}
 	
 	interactWithUser() {

@@ -3,7 +3,7 @@ import lionImage from '../../assets/Lion.png'
 
 export default class Lion extends Mammal {
 	constructor() {
-		super('Lion', 'Carnivore', 5, lionImage, 4, 'short')
+		super('Lion', 'Carnivore', 8, lionImage, 4, 'short')
 	}
 	
 	interactWithUser() {

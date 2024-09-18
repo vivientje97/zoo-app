@@ -3,7 +3,7 @@ import elephantImage from '../../assets/Elephant.png'
 
 export default class Elephant extends Mammal {
 	constructor() {
-		super( 'Elephant', 'Herbivore', 2, elephantImage, 2)
+		super( 'Elephant', 'Herbivore', 4, elephantImage, 2)
 		this.furType = 'none'
 	}
 	
