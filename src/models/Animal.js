@@ -2,7 +2,7 @@ let currentId = 1
 
 export default class Animal {
 	constructor(
-		name, type, diet = 'Omnivore', size = 1, image = '', speed = 1) {
+		name = '', type = '', diet = 'Omnivore', size = 1, image = '', speed = 1) {
 		this.id = currentId++
 		this.name = name
 		this.type = type
