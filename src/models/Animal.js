@@ -46,9 +46,9 @@ export default class Animal {
 	handleHerbivoreInteraction(otherAnimal) {
 		if (otherAnimal.diet === 'Carnivore') {
 			if (otherAnimal.size > this.size) {
-				return `${this.name} tries to escape from ${otherAnimal.name}, sensing danger.`
+				return `${this.name} tries to escape from ${otherAnimal.name}, sensing danger due to its size.`
 			} else {
-				return `${this.name} cautiously watches ${otherAnimal.name}, but stays calm.`
+				return `${this.name} cautiously watches ${otherAnimal.name}, but feels safe.`
 			}
 		} else {
 			if (this.type === 'Fish' || this.type === 'Reptile') {
@@ -61,16 +61,16 @@ export default class Animal {
 	handleOmnivoreInteraction(otherAnimal) {
 		if (otherAnimal.diet === 'Carnivore') {
 			if (otherAnimal.size > this.size) {
-				return `${this.name} avoids ${otherAnimal.name}, sensing a threat.`
+				return `${this.name} cautiously avoids ${otherAnimal.name}, sensing danger due to its size.`
 			} else {
-				return `${this.name} cautiously interacts with ${otherAnimal.name}.`
+				return `${this.name} cautiously interacts with ${otherAnimal.name}, aware of the potential threat.`
 			}
 		} else if (otherAnimal.diet === 'Herbivore') {
 			if (this.size > otherAnimal.size) {
 				const chanceOfEating = this.size / (this.size + otherAnimal.size)
 				if (Math.random() < chanceOfEating) {
-					otherAnimal.eaten = true;
-					return `${this.name} eats the unsuspecting ${otherAnimal.name}.`
+					otherAnimal.eaten = true
+					return `${this.name} eats the smaller ${otherAnimal.name}.`
 				} else {
 					return `${this.name} tries to eat ${otherAnimal.name}, but fails.`
 				}
@@ -78,7 +78,7 @@ export default class Animal {
 				if (this.type === 'Fish' || this.type === 'Reptile') {
 					return `${this.name} and ${otherAnimal.name} coexist peacefully in the same space.`
 				}
-				return `${this.name} and ${otherAnimal.name} graze cautiously side by side.`
+				return `${this.name} and ${otherAnimal.name} cautiously share resources side by side.`
 			}
 		} else {
 			return `${this.name} and ${otherAnimal.name} cautiously share resources.`
