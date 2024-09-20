@@ -2,6 +2,7 @@
   <div v-if="!animal.eaten" class="animal-card">
     <img :src="animal.image || 'default-image.jpg'" :alt="animal.name || 'Unknown Animal'" class="animal-image" />
     <h3>{{ animal.name }}</h3>
+	   <p class="animal-description">{{ animal.describe() }}</p>
 	  <button @click="interactWithUser">Interact with User</button>
     <div v-if="animals && animals.length > 1">
       <button @click="interactWithAnotherAnimal">Interact with Another Animal</button>

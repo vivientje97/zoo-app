@@ -1,11 +1,11 @@
-import Reptile from '../Reptile.js'
+import Amphibian from '../Amphibian.js'
 import toadImage from '../../assets/Toad.gif'
 
-export default class Toad extends Reptile {
+export default class Toad extends Amphibian {
 	constructor() {
 		super( 'Toad', 'Insectivore', 1, toadImage, 1)
 		this.canSwim = true
-		this.scaleType = 'warty skin'
+		this.skinType = 'warty skin'
 	}
 	
 	interactWithUser() {

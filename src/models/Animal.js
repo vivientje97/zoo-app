@@ -33,11 +33,11 @@ export default class Animal {
 	handleCarnivoreInteraction(otherAnimal) {
 		if (this.size >= otherAnimal.size) {
 			if (this.tryToEscape(otherAnimal)) {
-				return `${otherAnimal.name} escapes from ${this.name.toLowerCase()} due to its higher speed!`
+				return `${otherAnimal.name} escapes from ${this.name.toLowerCase()} due to its speed!`
 			}
 			
 			if (this.tryToEat(otherAnimal)) {
-				otherAnimal.eaten = true;
+				otherAnimal.eaten = true
 				return `${this.name} attacks and eats ${otherAnimal.name.toLowerCase()}!`
 			} else {
 				return `${this.name} tries to catch ${otherAnimal.name.toLowerCase()} but fails.`
@@ -95,7 +95,7 @@ export default class Animal {
 			}
 			
 			if (this.tryToEat(otherAnimal)) {
-				otherAnimal.eaten = true;
+				otherAnimal.eaten = true
 				return `${this.name} eats the smaller ${otherAnimal.name.toLowerCase()}.`
 			} else {
 				return `${this.name} tries to eat ${otherAnimal.name.toLowerCase()}, but fails.`
@@ -123,7 +123,7 @@ export default class Animal {
 	}
 	
 	isAlive() {
-		return !this.eaten;
+		return !this.eaten
 	}
 	
 	describe() {

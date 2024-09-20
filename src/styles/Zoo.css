@@ -18,26 +18,53 @@
 .zoo-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	gap: 30px;
+	justify-content: space-between;
 	width: 100%;
 	max-width: 1700px;
 	padding: 20px;
 }
 
 .animals-container {
-	flex: 3; /* Adjusted to take up more space */
+	flex: 3;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	gap: 20px;
+	justify-content: flex-start;
 }
 
 .grouped-animals-container {
-	flex: 1; /* Adjusted to take up less space */
+	flex: 1;
 	max-width: 400px;
 	background: linear-gradient(145deg, #ffffff, #f9f9f9);
 	padding: 20px;
 	border-radius: 12px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+button {
+	background-color: #007BFF;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'Arial', sans-serif;
+	margin: 10px;
+	font-size: 1rem;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+.button.is-danger {
+	background-color: #dc3545;
+}
+
+.button.is-danger:hover {
+	background-color: #c82333;
 }

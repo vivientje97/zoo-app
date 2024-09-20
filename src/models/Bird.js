@@ -4,6 +4,7 @@ export default class Bird extends Animal {
 	constructor(name, diet, size, image, speed) {
 		super(name, 'Bird', diet, size, image, speed)
 		this.canFly = true
+		this.canSwim = true
 	}
 	
 	fly() {
@@ -25,8 +26,32 @@ export default class Bird extends Animal {
 	
 	interactWith(otherAnimal) {
 		if (otherAnimal instanceof Bird && this.diet === otherAnimal.diet) {
-			return `${this.name} and ${otherAnimal.name.toLowerCase()} chirp or fly together.`
+			return `${this.name} and ${otherAnimal.name.toLowerCase()} chirp together.`
 		}
+		
+		if (otherAnimal.diet === 'Carnivore' || otherAnimal.diet === 'Omnivore') {
+			if (otherAnimal.size > this.size) {
+				if (this.canFly) {
+					const escapeChance = this.speed / (this.speed + otherAnimal.speed)
+					if (Math.random() < escapeChance) {
+						return `${this.name} senses danger and quickly flies away from ${otherAnimal.name.toLowerCase()}!`
+					} else {
+						return `${this.name} tries to fly away from ${otherAnimal.name.toLowerCase()}, but is caught!`
+					}
+				} else {
+					return `${this.name} tries to waddle away from ${otherAnimal.name.toLowerCase()}, but can't escape.`
+				}
+			}
+		}
+		
+		if (this.canSwim && otherAnimal.canSwim) {
+			return `${this.name} and ${otherAnimal.name.toLowerCase()} swim calmly in the pond.`
+		} else if (this.canSwim && !otherAnimal.canSwim) {
+			return `${this.name} glides across the water while ${otherAnimal.name.toLowerCase()} stays on the shore.`
+		} else if (!this.canSwim && otherAnimal.canSwim) {
+			return `${this.name} watches from land as ${otherAnimal.name.toLowerCase()} swims.`
+		}
+		
 		return super.interactWith(otherAnimal)
 	}
 }

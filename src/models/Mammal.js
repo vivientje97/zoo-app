@@ -7,6 +7,13 @@ export default class Mammal extends Animal {
 		this.furType = furType
 	}
 	
+	handleTerritorialBehavior(otherAnimal) {
+		if (this.diet === 'Carnivore' && this.size > otherAnimal.size) {
+			return `${this.name} marks its territory and chases ${otherAnimal.name} away.`;
+		}
+		return `${this.name} and ${otherAnimal.name} avoid confrontation and go their separate ways.`;
+	}
+	
 	groom() {
 		if (this.hasFur){
 			return `${this.name} the mammal is grooming its ${this.furType.toLowerCase()} fur.`	
